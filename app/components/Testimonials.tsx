@@ -39,7 +39,7 @@ export default function Testimonials() {
             >
               <div className="card-body">
                 <div className="text-primary text-2xl mb-4">★★★★★</div>
-                <p className="mb-6 italic">&quot;{t.text}&quot;</p>
+                <p className="mb-6 text-black italic">&quot;{t.text}&quot;</p>
                 
                 {/* Avatar + Info */}
                 <div className="flex items-center">
