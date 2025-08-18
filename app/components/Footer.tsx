@@ -33,8 +33,8 @@ const Footer = () => {
           <Link href="/careers" className="link link-hover">
             Careers
           </Link>
-          <Link href="/press" className="link link-hover">
-            Press Kit
+          <Link href="/pricing" className="link link-hover">
+            Pricing
           </Link>
         </nav>
 
