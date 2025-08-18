@@ -6,23 +6,23 @@ const services = [
   {
     title: "Digital Branding",
     description:
-      "Our digital branding services craft memorable visual identities that establish brand recognition and emotional connections with your target audience through strategic logo design, color psychology, and consistent brand messaging across all digital touchpoints.",
+      "At Brandriko Digital Solutions, we craft memorable brand identities that make lasting impressions. Our strategic approach to logo design, color psychology, and consistent messaging builds recognition across all digital platforms, helping your business stand out in competitive markets.",
     icon: "🖌️",
     slug: "digital-branding",
-    keywords: ["brand identity", "logo design", "visual branding"],
+    keywords: ["brand identity design", "logo creation", "visual branding strategy"],
   },
   {
     title: "Graphic Design",
     description:
-      "Professional graphic design solutions that transform your marketing materials into visually compelling assets, including brochures, business cards, banners, and social media graphics designed to maximize engagement and conversion rates.",
+      "Brandriko Digital Solutions transforms your marketing materials into conversion-driving assets. From social media graphics to print collateral, our professional designs communicate your value proposition clearly while maintaining visual consistency across all customer touchpoints.",
     icon: "🎨",
     slug: "graphic-design",
-    keywords: ["print design", "marketing materials", "visual content"],
+    keywords: ["marketing materials design", "print media", "visual content creation"],
   },
   {
     title: "Social Media Branding",
     description:
-      "End-to-end social media branding packages that develop cohesive visual identities across platforms, including profile optimization, content strategy, and platform-specific designs to boost your social media presence and follower engagement.",
+      "Maximize your social media impact with Brandriko Digital Solutions' complete branding packages. We optimize profiles, develop content strategies, and create platform-specific designs that boost engagement and convert followers into customers.",
     icon: "📱",
     slug: "social-media",
     keywords: ["social media marketing", "content strategy", "platform branding"],
@@ -30,26 +30,26 @@ const services = [
   {
     title: "Website Design & Development",
     description:
-      "Custom website design and development services that create responsive, user-friendly sites with optimized conversion paths, fast load times, and mobile-first designs to maximize your online visibility and lead generation.",
+      "Your digital storefront deserves expert craftsmanship. Brandriko Digital Solutions builds high-converting websites with intuitive navigation, mobile responsiveness, and lighting-fast speeds - technical essentials that improve user experience and search rankings simultaneously.",
     icon: "💻",
     slug: "web-design",
-    keywords: ["responsive design", "UX/UI", "conversion optimization"],
+    keywords: ["responsive web design", "UX/UI development", "conversion optimization"],
   },
   {
     title: "SEO Services",
     description:
-      "Comprehensive SEO strategies including keyword research, on-page optimization, technical SEO audits, and content optimization to improve your search rankings and drive qualified organic traffic to your website.",
+      "Brandriko Digital Solutions implements comprehensive SEO strategies that make your business discoverable. Our technical audits, keyword optimization, and content enhancements drive qualified organic traffic that converts into measurable business growth.",
     icon: "🔍",
     slug: "seo",
-    keywords: ["search engine optimization", "keyword strategy", "organic traffic"],
+    keywords: ["search engine optimization", "organic traffic growth", "technical SEO"],
   },
   {
     title: "Digital Marketing",
     description:
-      "Data-driven digital marketing campaigns leveraging PPC advertising, email marketing, and conversion rate optimization to increase your online visibility, generate qualified leads, and maximize marketing ROI.",
+      "Data-driven results start with Brandriko Digital Solutions. Our targeted campaigns combine PPC advertising, email marketing, and conversion optimization to reach ideal customers at every stage of their buying journey, maximizing your marketing ROI.",
     icon: "📈",
     slug: "digital-marketing",
-    keywords: ["PPC advertising", "email campaigns", "lead generation"],
+    keywords: ["PPC management", "email marketing campaigns", "lead generation"],
   },
 ];
 

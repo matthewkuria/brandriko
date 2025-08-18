@@ -96,7 +96,7 @@ export default function Navbar() {
                   d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </label>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   {link.subLinks ? (
@@ -105,7 +105,7 @@ export default function Navbar() {
                       <ul>
                         {link.subLinks.map((subLink) => (
                           <li key={subLink.name}>
-                            <Link href={subLink.href}>{subLink.name}</Link>
+                            <Link href={subLink.href} className='my-4'>{subLink.name}</Link>
                           </li>
                         ))}
                       </ul>
