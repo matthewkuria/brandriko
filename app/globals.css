@@ -13,18 +13,11 @@
   --color-accent: #3BA9FF;
   --color-accent-content: #ffffff;
 
-  --color-neutral: #2E2E2E;
-  --color-neutral-content: #ffffff;
+  --color-neutral: #fff;
+  --color-neutral-content: #fff;
+  
 
-  --color-base-100: #ffffff;   /* background */
-  --color-base-200: #f5f6fa;   /* lighter background */
-  --color-base-300: #e3e6eb;   /* borders */
-  --color-base-content: #2E2E2E; /* default text color */
-
-  --color-info: #3BA9FF;
-  --color-success: #2ECC71;
-  --color-warning: #FFC107;
-  --color-error: #E53935;
+ 
 }
 
 :root {
