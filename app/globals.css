@@ -1,22 +1,47 @@
 @import "tailwindcss";
+
 @plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "light";     /* theme name */
+  default: true;     /* make it the default theme */
+  --color-primary: #FF582B;
+  --color-primary-content: #ffffff;  /* text on primary */
+  
+  --color-secondary: #000C7A;
+  --color-secondary-content: #ffffff;
+  
+  --color-accent: #3BA9FF;
+  --color-accent-content: #ffffff;
+
+  --color-neutral: #2E2E2E;
+  --color-neutral-content: #ffffff;
+
+  --color-base-100: #ffffff;   /* background */
+  --color-base-200: #f5f6fa;   /* lighter background */
+  --color-base-300: #e3e6eb;   /* borders */
+  --color-base-content: #2E2E2E; /* default text color */
+
+  --color-info: #3BA9FF;
+  --color-success: #2ECC71;
+  --color-warning: #FFC107;
+  --color-error: #E53935;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* fallback CSS variables */
+  --primary: #FF582B;
+  --secondary: #000C7A;
+  --neutral: #FFFFFF;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.hero {
+    background: linear-gradient(45deg, rgba(0,0,0, 0.7), transparent),  url('/hero-bg.jpg'); /* replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
