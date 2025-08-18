@@ -12,7 +12,7 @@ export default function AboutSection() {
                 src="/brandriko_team.png"
                 alt="Brandriko Digital Solutions team working on digital projects"
                 fill
-                className="object-cover"
+                className="object-cover hover:scale-105 transition duration-700"
                 priority
               />
             </div>

@@ -25,18 +25,48 @@ export default function Navbar() {
 
         {/* LEFT: Logo + Mobile Menu */}
         <div className="flex items-center gap-2">
-          
+          {/* Mobile menu */}
+          <div className="dropdown lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost p-1">
+              <svg xmlns="http://www.w3.org/2000/svg" 
+                className="h-6 w-6" fill="none" viewBox="0 0 24 24" 
+                stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                  d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </label>
+            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  {link.subLinks ? (
+                    <details>
+                      <summary>{link.name}</summary>
+                      <ul>
+                        {link.subLinks.map((subLink) => (
+                          <li key={subLink.name}>
+                            <Link href={subLink.href}>{subLink.name}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  ) : (
+                    <Link href={link.href}>{link.name}</Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Brand Logo/Name */}
           <Link href="/" className="flex items-center gap-2 text-xl font-bold text-secondary">
             <Image 
               src="/brandriko_logo.png" 
               alt="Brandriko Digital Solutions" 
-              width={80} 
-              height={80} 
+              width={100} 
+              height={100} 
               className="rounded-md"
             />
-            Brandriko
+         
           </Link>
         </div>
 
@@ -77,7 +107,7 @@ export default function Navbar() {
         </div>
 
         {/* RIGHT: CTA Button */}
-        <div className="md:navbar-end hidden ">
+        <div className="">
           <Link 
             href="/contact" 
             className="btn btn-primary text-white hover:bg-primary-focus"
@@ -86,37 +116,6 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-      {/* Mobile menu */}
-          <div className="dropdown lg:hidden">
-            <label tabIndex={0} className="btn btn-ghost p-1">
-              <svg xmlns="http://www.w3.org/2000/svg" 
-                className="h-6 w-6" fill="none" viewBox="0 0 24 24" 
-                stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                  d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </label>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  {link.subLinks ? (
-                    <details>
-                      <summary>{link.name}</summary>
-                      <ul>
-                        {link.subLinks.map((subLink) => (
-                          <li key={subLink.name}>
-                            <Link href={subLink.href} className='my-4'>{subLink.name}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  ) : (
-                    <Link href={link.href}>{link.name}</Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
     </div>
   );
 }
