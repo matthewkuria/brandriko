@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Brandriko Digital Solutions",
-  description: "Brandriko Digital Solutions is a digital solutions company that specializes in web development, mobile app development, and digital marketing.",
+  description: "Brandriko Digital Solutions is a digital solutions company that specializes in web design & development, mobile app development, and digital marketing.",
   openGraph: {
     title: "Brandriko Digital Solutions",
     description:
