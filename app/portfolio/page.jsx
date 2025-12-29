@@ -5,9 +5,9 @@ import { useState, useRef, useEffect } from 'react';
 const portfolioProjects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Pyrowise Energy LTD",
     category: "Web Development",
-    image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&q=80",
+    image: "https://res.cloudinary.com/dwhba39zm/image/upload/v1767037074/screencapture-pyrowiseenergyltd_hmdmxt.png",
     color: "from-purple-600 to-pink-600"
   },
   {
@@ -99,7 +99,7 @@ function PortfolioCard({ project, isHovered, onHover, onLeave }) {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-auto object-cover"
+            className="w-full h-auto object-contain"
             style={{ minHeight: '200%' }}
           />
         </div>
