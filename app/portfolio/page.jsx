@@ -28,7 +28,7 @@ const portfolioProjects = [
     id: 4,
     title: "Real Estate Portal",
     category: "Web Development",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+    image: "https://res.cloudinary.com/dwhba39zm/image/upload/v1767108069/screencapture-jafranaconstructionworks-co-ke-2025-12-29-22_47_56_gyrmn5.png",
     color: "from-orange-600 to-red-600"
   },
   {
