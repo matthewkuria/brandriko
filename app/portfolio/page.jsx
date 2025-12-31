@@ -40,9 +40,9 @@ const portfolioProjects = [
   },
   {
     id: 6,
-    title: "Educational Platform",
-    category: "EdTech",
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80",
+    title: "Blogging Platform",
+    category: "Blogging",
+    image: "https://res.cloudinary.com/dwhba39zm/image/upload/v1767108066/screencapture-bl0gr-netlify-app-2025-12-29-22_53_58_hv5b2s.png",
     color: "from-cyan-600 to-blue-600"
   }
 ];
