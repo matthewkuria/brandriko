@@ -9,7 +9,6 @@ export default function ServicesPage() {
       <ServicesHero />
       <ServicesCTA />
       <FAQSection />
-      <ServicesCTA />
     </main>
   )
 }
