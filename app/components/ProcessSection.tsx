@@ -1,130 +1,99 @@
-"use client";
-import { FaLightbulb, FaPenFancy, FaCode, FaRocket } from 'react-icons/fa';
-import { motion, useScroll, useSpring } from "framer-motion";
-import { useRef } from "react";
+'use client'
+
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Discovery & Strategy',
+    description: 'We begin by understanding your business goals, target audience, and competition to develop a strategic plan.',
+    icon: 'fa-magnifying-glass',
+    direction: 'left'
+  },
+  {
+    number: '02',
+    title: 'Design & Branding',
+    description: 'Our creative team develops visually stunning designs that align with your brand and appeal to your target audience.',
+    icon: 'fa-paint-brush',
+    direction: 'right'
+  },
+  {
+    number: '03',
+    title: 'Development & Launch',
+    description: 'We build and deploy your project using cutting-edge technologies, ensuring optimal performance and user experience.',
+    icon: 'fa-rocket',
+    direction: 'left'
+  },
+  {
+    number: '04',
+    title: 'Growth & Support',
+    description: 'We provide ongoing support and optimization to ensure your digital presence continues to grow and evolve.',
+    icon: 'fa-chart-line',
+    direction: 'right'
+  }
+]
 
 export default function ProcessSection() {
-  const processSteps = [
-    {
-      icon: <FaLightbulb className="text-3xl text-primary" />,
-      title: "Discovery & Strategy",
-      description: "We analyze your business goals, target audience, and competition to create a customized digital strategy.",
-      keyFeatures: [
-        "Market research",
-        "Competitor analysis",
-        "Goal setting"
-      ]
-    },
-    {
-      icon: <FaPenFancy className="text-3xl text-primary" />,
-      title: "Design & Branding",
-      description: "Our creative team develops visually stunning designs that reflect your brand identity and resonate with your audience.",
-      keyFeatures: [
-        "Brand identity",
-        "UI/UX design",
-        "Visual assets creation"
-      ]
-    },
-    {
-      icon: <FaCode className="text-3xl text-primary" />,
-      title: "Development & Implementation",
-      description: "We build robust digital solutions using cutting-edge technologies to bring your vision to life.",
-      keyFeatures: [
-        "Web development",
-        "Mobile optimization",
-        "Quality assurance"
-      ]
-    },
-    {
-      icon: <FaRocket className="text-3xl text-primary" />,
-      title: "Launch & Growth",
-      description: "We don't just deliver projects - we ensure continuous improvement and growth through analytics and optimization.",
-      keyFeatures: [
-        "Performance tracking",
-        "SEO optimization",
-        "Ongoing support"
-      ]
-    }
-  ];
-
-  const containerRef = useRef(null);
-
-  // Hook that tracks scroll progress for this section
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 100px", "end end"]
-  });
-
-  // Smooth animation for progress line
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    })
+  }, [])
 
   return (
-    <section id="process" className="py-20 bg-base-100" ref={containerRef}>
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-secondary">
-            Our <span className="text-primary">Process</span>
-          </h2>
-          <p className="text-xl max-w-2xl mx-auto">
-            A structured approach to delivering exceptional digital solutions that drive results
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-deep-blue mb-4">Our Process</h2>
+          <div className="w-24 h-1 bg-orange mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We follow a proven methodology to ensure your project is completed efficiently and effectively.
           </p>
         </div>
-
+        
         <div className="relative">
-          {/* Progress line (animated) */}
-          <motion.div 
-            className="hidden md:block absolute left-1/2 top-0 h-full w-1 bg-primary/30 -translate-x-1/2 origin-top"
-            style={{ scaleY }}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Timeline line for desktop */}
+          <div className="hidden lg:block absolute left-1/2 top-0 h-full w-1 bg-orange bg-opacity-20 transform -translate-x-1/2"></div>
+          
+          <div className="space-y-12 lg:space-y-0">
             {processSteps.map((step, index) => (
-              <div 
-                key={index} 
-                className="relative bg-base-100 p-6 rounded-xl shadow-sm hover:shadow-md transition-all border border-base-200"
+              <div
+                key={step.number}
+                className={`relative lg:flex lg:items-center lg:justify-between ${
+                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                }`}
+                data-aos={step.direction === 'left' ? 'fade-right' : 'fade-left'}
               >
-                {/* Step number */}
-                <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
-                  {index + 1}
+                {/* Step content */}
+                <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'} mb-8 lg:mb-0`}>
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                      {step.number}
+                    </div>
+                    <h3 className="text-2xl font-bold text-deep-blue">{step.title}</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">{step.description}</p>
+                  <div className="flex">
+                    <div className="w-12 h-12 rounded-full bg-orange bg-opacity-10 flex items-center justify-center">
+                      <i className={`fa-solid ${step.icon} text-orange`}></i>
+                    </div>
+                  </div>
                 </div>
                 
-                {/* Icon */}
-                <div className="mb-4">
-                  {step.icon}
-                </div>
+                {/* Timeline dot for desktop */}
+                <div className="hidden lg:block absolute left-1/2 top-1/2 w-6 h-6 rounded-full bg-orange transform -translate-x-1/2 -translate-y-1/2 z-10"></div>
                 
-                {/* Content */}
-                <h3 className="text-2xl font-semibold mb-3 text-secondary">{step.title}</h3>
-                <p className="mb-4">{step.description}</p>
-                
-                {/* Key features */}
-                <ul className="space-y-2">
-                  {step.keyFeatures.map((feature, i) => (
-                    <li key={i} className="flex items-start">
-                      <span className="text-primary mr-2">✓</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Empty div for spacing on alternating sides */}
+                <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'}`}></div>
               </div>
             ))}
           </div>
         </div>
-
-        {/* CTA */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-semibold mb-6 text-secondary">
-            Ready to start your digital transformation journey?
-          </h3>
-          <button className="btn btn-primary text-white px-8 py-4 text-lg">
-            Get Started Today
-          </button>
-        </div>
       </div>
     </section>
-  );
+  )
 }
