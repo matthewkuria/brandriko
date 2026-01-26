@@ -1,52 +1,61 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/NavBar";
-import Footer from "./components/Footer";
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+import WhatsAppButton from '@/components/ui/WhatsAppButton'
+import CookieConsent from '@/components/ui/CookieConsent'
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Brandriko Digital Solutions",
-  description: "Brandriko Digital Solutions is a digital solutions company that specializes in web design & development, mobile app development, and digital marketing.",
+  title: 'Brandriko Digital Solutions | Best Web Design Agency in Nakuru, Kenya',
+  description: 'Leading web development, graphic design, and digital marketing agency in Nakuru. We create stunning websites that drive business growth across Kenya',
+  keywords: 'website design Nakuru, web development Kenya, graphic design Nakuru, digital marketing Kenya, SEO services Nakuru, Brandriko',
   openGraph: {
-    title: "Brandriko Digital Solutions",
-    description:
-      "Brandriko Digital Solutions is a digital solutions company that specializes in web development, mobile app development, and digital marketing.",
-    url: "https://brandriko.com",
-    siteName: "Brandriko Digital Solutions",
-    images: [
-      {
-        url: "https://brandriko.com/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Brandriko Digital Solutions",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
+    title: 'Brandriko Digital Solutions | Best Web Design Agency in Nakuru, Kenya',
+    description: 'Leading web development, graphic design, and digital marketing agency in Nakuru. We create stunning websites that drive business growth across Kenya',
+    images: ['https://cdn.pixabay.com/photo/2017/05/09/13/33/laptop-2298286_1280.jpg'],
+    type: 'website',
   },
-};
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" data-theme="light">
-      <Navbar />
-      <body
-        className={`${poppins.className}  antialiased`}
-      >
-        
+    <html lang="en">
+      <head>
+        <link rel="canonical" href="https://brandrikodigital.co.ke" />
+        <meta name="robots" content="index, follow" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" async />
+      </head>
+      <body className={inter.className}>
+        <Header />
         {children}
+        <Footer />
+        <WhatsAppButton />
+        <CookieConsent />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('DOMContentLoaded', function() {
+                if (typeof AOS !== 'undefined') {
+                  AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 100
+                  });
+                }
+              });
+            `,
+          }}
+        />
       </body>
-      <Footer />
     </html>
-  );
+  )
 }

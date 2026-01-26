@@ -12,7 +12,7 @@ function handleClick() {
     { name: "Home", href: "/" },
     { name: "About", href: "#about" },
     { 
-      name: "Services", 
+      name: "What We Do", 
       href: "/services",
       subLinks: [
         { name: "Digital Branding", href: "/services/branding" },

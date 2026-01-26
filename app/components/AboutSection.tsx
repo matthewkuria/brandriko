@@ -25,7 +25,7 @@ export default function AboutSection() {
             </h1>
             
             <p className="text-lg mb-6">
-              Brandriko Digital Solutions is a full-service digital agency specializing in helping businesses and individuals grow through expert <strong>digital branding, marketing, and technology solutions</strong>. Based in Nakuru, we serve clients worldwide with innovative strategies and cutting-edge execution. 
+              Brandriko Digital Solutions is a website design agency specializing in helping businesses and individuals grow through expert <strong>digital branding, marketing, and technology solutions</strong>. Based in Nakuru, we serve clients worldwide with innovative strategies and cutting-edge execution. 
               <br /><br />
               <strong>Brandriko is a registered business in Kenya</strong>, ensuring compliance, trust, and professionalism in all our operations.
             </p>
