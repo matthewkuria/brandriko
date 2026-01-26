@@ -1,12 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #FF5722;
+  --color-primary-content: #ffffff;
+  
+  --color-secondary: #1E3A8A;
+  --color-secondary-content: #ffffff;
+  
+  --color-accent: #3BA9FF;
+  --color-accent-content: #ffffff;
 
+  --color-neutral: #F8FAFC;
+  --color-neutral-content: #0F172A;
+
+  --color-base-100: #ffffff;
+  --color-base-200: #F8FAFC;
+  --color-base-300: #F1F5F9;
+  --color-base-content: #0F172A;
+}
+
+/* Custom CSS Variables */
 :root {
   --orange: #FF5722;
   --deep-blue: #1E3A8A;
   --dark-navy: #0F172A;
   --light-gray: #F8FAFC;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
 }
 
 html {
@@ -39,10 +63,21 @@ html {
   background: linear-gradient(135deg, var(--deep-blue), var(--dark-navy));
 }
 
+/* Custom Hero Background */
+.hero-custom {
+  background: linear-gradient(45deg, rgba(0,0,0, 0.7), transparent),  url('/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 /* Primary button gradient */
 .btn-gradient {
   background: linear-gradient(135deg, var(--orange), #FF8A65);
   transition: all 0.3s ease;
+  border: none;
+  color: white !important;
 }
 
 .btn-gradient:hover {
@@ -55,12 +90,54 @@ html {
   border: 2px solid var(--orange);
   color: var(--orange);
   transition: all 0.3s ease;
+  background: transparent;
 }
 
 .btn-outline:hover {
   background-color: var(--orange);
   color: white;
   transform: scale(1.05);
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.counter {
+  animation: countUp 1s ease-out forwards;
+}
+
+/* Portfolio card hover effect */
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  background: rgba(14, 23, 42, 0.9);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  bottom: 0;
+}
+
+.portfolio-card:hover {
+  transform: scale(1.02);
 }
 
 /* WhatsApp button animation */
@@ -83,6 +160,39 @@ html {
   animation: pulse 2s infinite;
 }
 
+/* Timeline connector */
+.timeline-connector {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  bottom: -30px;
+  width: 2px;
+  background-color: var(--orange);
+  z-index: -1;
+}
+
+/* Mobile menu animation */
+.menu-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.menu-exit {
+  opacity: 1;
+}
+
+.menu-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 200ms, transform 200ms;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -101,6 +211,26 @@ html {
   background: #555;
 }
 
+/* Testimonial quote icon */
+.quote-icon::before {
+  content: '\201C';
+  font-size: 5rem;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  color: rgba(255, 87, 34, 0.2);
+}
+
+/* Cookie consent banner */
+.cookie-banner {
+  transition: transform 0.3s ease;
+  transform: translateY(100%);
+}
+
+.cookie-banner.show {
+  transform: translateY(0);
+}
+
 /* Section transitions */
 .section-fade-in {
   opacity: 0;
@@ -111,4 +241,193 @@ html {
 .section-fade-in.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Blog card hover effect */
+.blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Service card icon */
+.service-icon-container {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon-container {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--orange);
+}
+
+/* Page transition */
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  transform: translateY(100%);
+}
+
+.page-transition.active {
+  transform: translateY(0);
+}
+
+/* Loader */
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--orange);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* DaisyUI Theme Overrides */
+.btn-primary {
+  background: linear-gradient(135deg, var(--orange), #FF8A65);
+  border: none;
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+}
+
+.btn-secondary {
+  background: var(--deep-blue);
+  border: none;
+  color: white;
+}
+
+.btn-accent {
+  background: var(--accent);
+  border: none;
+  color: white;
+}
+
+/* Custom gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--orange), #FF8A65);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, var(--deep-blue), var(--dark-navy));
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, var(--dark-navy), #1a202c);
+}
+
+/* Text colors for DaisyUI compatibility */
+.text-primary {
+  color: var(--orange) !important;
+}
+
+.text-secondary {
+  color: var(--deep-blue) !important;
+}
+
+.bg-primary {
+  background-color: var(--orange) !important;
+}
+
+.bg-secondary {
+  background-color: var(--deep-blue) !important;
+}
+
+.border-primary {
+  border-color: var(--orange) !important;
+}
+
+.border-secondary {
+  border-color: var(--deep-blue) !important;
+}
+
+/* DaisyUI badge overrides */
+.badge-primary {
+  background-color: var(--orange);
+  color: white;
+}
+
+.badge-secondary {
+  background-color: var(--deep-blue);
+  color: white;
+}
+
+/* DaisyUI alert overrides */
+.alert-info {
+  background-color: rgba(59, 169, 255, 0.1);
+  border-color: rgba(59, 169, 255, 0.2);
+  color: var(--dark-navy);
+}
+
+/* DaisyUI card enhancements */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* DaisyUI divider overrides */
+.divider:before, .divider:after {
+  background-color: var(--orange) !important;
+}
+
+.divider-primary:before, .divider-primary:after {
+  background-color: var(--orange) !important;
+}
+
+/* DaisyUI rating overrides */
+.rating input:checked ~ .rating-star {
+  color: var(--orange) !important;
+}
+
+/* Custom DaisyUI theme class */
+.theme-custom {
+  --p: var(--orange);
+  --pc: white;
+  --s: var(--deep-blue);
+  --sc: white;
+  --a: #3BA9FF;
+  --ac: white;
+  --n: #F8FAFC;
+  --nc: #0F172A;
+  --b1: #ffffff;
+  --b2: #F8FAFC;
+  --b3: #F1F5F9;
+  --bc: #0F172A;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .hero-custom {
+    background-attachment: scroll;
+  }
+  
+  .portfolio-overlay {
+    padding: 1rem;
+  }
+  
+  .btn-gradient, .btn-outline {
+    transform: none !important;
+  }
+  
+  .btn-gradient:hover, .btn-outline:hover {
+    transform: scale(1.02) !important;
+  }
 }

@@ -4,8 +4,9 @@ import './globals.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/ui/WhatsAppButton'
+import CookieConsent from './components/ui/CookieConsent'
 
-// import CookieConsent from '@/components/ui/CookieConsent'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light">
       <head>
         <link rel="canonical" href="https://brandrikodigital.co.ke" />
         <meta name="robots" content="index, follow" />

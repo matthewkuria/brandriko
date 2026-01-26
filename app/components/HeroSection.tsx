@@ -17,7 +17,7 @@ export default function HeroSection() {
 
   return (
     <section className="hero-gradient text-white relative overflow-hidden min-h-screen flex items-center">
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      {/* <div className="absolute inset-0 bg-bla bg-opacity-50"></div> */}
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left" data-aos="fade-right">

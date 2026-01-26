@@ -1,90 +1,119 @@
-import React from "react";
-import Link from "next/link";
+import Link from 'next/link'
 
-const Footer = () => {
+const quickLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Services', href: '/services' },
+  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Contact', href: '/contact' },
+]
+
+const services = [
+  { name: 'Digital Branding', href: '/services' },
+  { name: 'Graphic Design', href: '/services' },
+  { name: 'Social Media Branding', href: '/services' },
+  { name: 'Web Development', href: '/services' },
+  { name: 'SEO Services', href: '/services' },
+  { name: 'Digital Marketing', href: '/services' },
+]
+
+export default function Footer() {
   return (
-    <footer className="bg-neutral text-secondary">
-      {/* Main footer links */}
-      <div className="footer sm:footer-horizontal px-10 py-14 max-w-7xl mx-auto">
-        <nav>
-          <h6 className="footer-title text-primary">Services</h6>
-          <Link href="/services/branding" className="link link-hover">
-            Branding
-          </Link>
-          <Link href="/services/design" className="link link-hover">
-            Design
-          </Link>
-          <Link href="/services/marketing" className="link link-hover">
-            Marketing
-          </Link>
-          <Link href="/services/advertising" className="link link-hover">
-            Advertising
-          </Link>
-        </nav>
-
-        <nav>
-          <h6 className="footer-title text-primary">Company</h6>
-          <Link href="/about" className="link link-hover">
-            About Us
-          </Link>
-          <Link href="/contact" className="link link-hover">
-            Contact
-          </Link>
-          <Link href="/careers" className="link link-hover">
-            Careers
-          </Link>
-          <Link href="/pricing" className="link link-hover">
-            Pricing
-          </Link>
-        </nav>
-
-        <nav>
-          <h6 className="footer-title text-primary">Legal</h6>
-          <Link href="/terms" className="link link-hover">
-            Terms of Use
-          </Link>
-          <Link href="/privacy" className="link link-hover">
-            Privacy Policy
-          </Link>
-          <Link href="/cookies" className="link link-hover">
-            Cookie Policy
-          </Link>
-        </nav>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="footer border-t border-base-300 px-10 py-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-        <aside className="flex items-center gap-3">
-          <img src="/brandriko_logo.png" alt="Brandriko Logo" className="h-28
-           w-auto" />
-          <p className="text-sm">
-            <span className="font-semibold">Brandriko Digital Solutions</span> <br />
-            Crafting brands & digital growth since 2025.
-          </p>
-        </aside>
-
-        <nav className="mt-4 md:mt-0">
-          <div className="grid grid-flow-col gap-4">
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 4.557a9.83 9.83 0 0 1-2.828.775..." />
-              </svg>
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19.615 3.184c-3.604-.246..." />
-              </svg>
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M9 8h-3v4h3v12h5v-12h3.642..." />
-              </svg>
-            </a>
+    <footer className="footer bg-base-300 text-base-content p-10">
+      <div className="container mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Brand & Social */}
+          <div>
+            <Link href="/" className="text-2xl font-bold">
+              <span className="text-primary">B</span>
+              <span className="text-secondary">randriko</span>
+            </Link>
+            <p className="mt-4 opacity-80">
+              We are a premier digital solutions agency based in Nakuru, Kenya, 
+              specializing in web design, branding, and digital marketing.
+            </p>
+            <div className="flex space-x-4 mt-6">
+              {['facebook-f', 'twitter', 'instagram', 'linkedin-in'].map((icon) => (
+                <a
+                  key={icon}
+                  href="#"
+                  className="btn btn-ghost btn-circle"
+                  aria-label={`Follow us on ${icon}`}
+                >
+                  <i className={`fa-brands fa-${icon}`}></i>
+                </a>
+              ))}
+            </div>
           </div>
-        </nav>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="footer-title opacity-100">Quick Links</h3>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="link link-hover">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="footer-title opacity-100">Services</h3>
+            <ul className="space-y-2">
+              {services.map((service) => (
+                <li key={service.name}>
+                  <Link href={service.href} className="link link-hover">
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="footer-title opacity-100">Contact Info</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <i className="fa-solid fa-location-dot mt-1 mr-3 text-primary"></i>
+                <span className="opacity-80">Nakuru, Kenya</span>
+              </li>
+              <li className="flex items-start">
+                <i className="fa-solid fa-phone mt-1 mr-3 text-primary"></i>
+                <span className="opacity-80">+254 748 421 758</span>
+              </li>
+              <li className="flex items-start">
+                <i className="fa-solid fa-envelope mt-1 mr-3 text-primary"></i>
+                <span className="opacity-80">info.brandriko.digital@gmail.com</span>
+              </li>
+              <li className="flex items-start">
+                <i className="fa-solid fa-clock mt-1 mr-3 text-primary"></i>
+                <span className="opacity-80">Mon - Fri: 8:00AM - 6:00PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="divider"></div>
+
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <p className="opacity-80">
+            &copy; {new Date().getFullYear()} Brandriko Digital Solutions. All rights reserved.
+          </p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            {['Privacy Policy', 'Terms of Service', 'Sitemap'].map((item) => (
+              <a key={item} href="#" className="link link-hover">
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </footer>
-  );
-};
-
-export default Footer;
+  )
+}
