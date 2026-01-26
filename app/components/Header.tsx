@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const navigation = [
@@ -23,7 +24,11 @@ export default function Header() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold text-deep-blue flex items-center">
-            <span className="text-orange mr-1">B</span>randriko
+          <Image alt='Brandriko digital solutions logo' 
+          src="/brandriko_logo.png" 
+          width={70} height={80}
+          className='h-[12vh]'
+          />
           </Link>
           
           {/* Desktop Menu */}

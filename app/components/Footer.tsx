@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const quickLinks = [
   { name: 'Home', href: '/' },
@@ -26,8 +27,7 @@ export default function Footer() {
           {/* Brand & Social */}
           <div>
             <Link href="/" className="text-2xl font-bold">
-              <span className="text-primary">B</span>
-              <span className="text-secondary">randriko</span>
+              <Image alt='Brandriko digital solutions logo' src="/brandriko_logo.png" width={200} height={200}/>
             </Link>
             <p className="mt-4 opacity-80">
               We are a premier digital solutions agency based in Nakuru, Kenya, 
