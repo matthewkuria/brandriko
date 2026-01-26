@@ -20,14 +20,14 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 w-full z-50 transition-all duration-300 glass-nav">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-6 md:px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold text-deep-blue flex items-center">
           <Image alt='Brandriko digital solutions logo' 
           src="/brandriko_logo.png" 
           width={70} height={80}
-          className='h-[12vh]'
+          className='h-[12vh] md:w-[5vw]'
           />
           </Link>
           
