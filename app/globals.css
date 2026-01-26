@@ -1,40 +1,114 @@
-@import "tailwindcss";
-
-@plugin "daisyui";
-@plugin "daisyui/theme" {
-  name: "light";     /* theme name */
-  default: true;     /* make it the default theme */
-  --color-primary: #FF582B;
-  --color-primary-content: #ffffff;  /* text on primary */
-  
-  --color-secondary: #000C7A;
-  --color-secondary-content: #ffffff;
-  
-  --color-accent: #3BA9FF;
-  --color-accent-content: #ffffff;
-
-  --color-neutral: #fff;
-  --color-neutral-content: #fff;
-  
-
- 
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  /* fallback CSS variables */
-  --primary: #FF582B;
-  --secondary: #000C7A;
-  --neutral: #FFFFFF;
+  --orange: #FF5722;
+  --deep-blue: #1E3A8A;
+  --dark-navy: #0F172A;
+  --light-gray: #F8FAFC;
 }
 
-body {
-  
+html {
+  scroll-behavior: smooth;
 }
 
-.hero {
-    background: linear-gradient(45deg, rgba(0,0,0, 0.7), transparent),  url('/hero-bg.jpg'); /* replace with your image path */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+/* Glassmorphism for navigation */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Glassmorphism for cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero section gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--deep-blue), var(--dark-navy));
+}
+
+/* Primary button gradient */
+.btn-gradient {
+  background: linear-gradient(135deg, var(--orange), #FF8A65);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+}
+
+/* Secondary button */
+.btn-outline {
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--orange);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* WhatsApp button animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-btn {
+  animation: pulse 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Section transitions */
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
 }
