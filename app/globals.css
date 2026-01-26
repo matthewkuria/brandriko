@@ -99,7 +99,7 @@ html {
   transform: scale(1.05);
 }
 .stat-desc{
-  color: #888;
+  color: #ffffff;
 }
 /* Counter animation */
 @keyframes countUp {
