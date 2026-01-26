@@ -196,68 +196,6 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Our Expertise */}
-        <div className="bg-base-100 rounded-2xl p-8 shadow-xl" data-aos="fade-up">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Our Areas of Expertise
-            </h2>
-            <div className="divider divider-primary w-24 mx-auto"></div>
-            <p className="text-lg max-w-3xl mx-auto mb-6">
-              Specialized services designed for Kenyan businesses
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Web Development',
-                description: 'Responsive websites optimized for Kenyan internet speeds',
-                skills: ['Next.js', 'React', 'SEO', 'Mobile-First']
-              },
-              {
-                title: 'Digital Branding',
-                description: 'Brand identities that resonate with Kenyan audiences',
-                skills: ['Logo Design', 'Brand Strategy', 'Visual Identity']
-              },
-              {
-                title: 'Digital Marketing',
-                description: 'Targeted campaigns for Kenyan market penetration',
-                skills: ['SEO', 'Social Media', 'Google Ads', 'Content']
-              },
-              {
-                title: 'E-commerce Solutions',
-                description: 'Online stores with M-Pesa integration',
-                skills: ['Shopify', 'WooCommerce', 'Payment Gateways']
-              },
-              {
-                title: 'Graphic Design',
-                description: 'Visual content that communicates effectively',
-                skills: ['Print Design', 'Digital Assets', 'UI/UX']
-              },
-              {
-                title: 'Local SEO',
-                description: 'Dominate local search results in Kenya',
-                skills: ['Google My Business', 'Local Listings', 'Reviews']
-              }
-            ].map((expertise, index) => (
-              <div key={index} className="card bg-base-200 shadow-sm">
-                <div className="card-body">
-                  <h3 className="card-title text-lg">{expertise.title}</h3>
-                  <p className="text-sm text-base-content/70 mb-4">{expertise.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {expertise.skills.map((skill, idx) => (
-                      <span key={idx} className="badge badge-outline badge-sm">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="text-center mt-16" data-aos="fade-up">
           <div className="alert alert-info max-w-3xl mx-auto mb-8">

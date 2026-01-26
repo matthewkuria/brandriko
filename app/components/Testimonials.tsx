@@ -410,9 +410,9 @@ export default function Testimonials() {
                   <i className="fa-solid fa-calendar-check mr-2"></i>
                   Book Free Consultation
                 </a>
-                <a href="tel:+254XXXXXXXXX" className="btn btn-outline btn-lg text-white hover:bg-white hover:text-secondary">
+                <a href="tel:+254748421758" className="btn btn-outline btn-lg text-white hover:bg-white hover:text-secondary">
                   <i className="fa-solid fa-phone mr-2"></i>
-                  Call: +254 XXX XXX XXX
+                  Call: +254 748 421 758
                 </a>
               </div>
             </div>

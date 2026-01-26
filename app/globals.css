@@ -98,7 +98,9 @@ html {
   color: white;
   transform: scale(1.05);
 }
-
+.stat-desc{
+  color: #888;
+}
 /* Counter animation */
 @keyframes countUp {
   from {

@@ -1,5 +1,4 @@
 import AboutSection from "./components/AboutSection";
-import BrandElevationCTA from "./components/BrandElevationCTA";
 import HeroSection from "./components/HeroSection";
 import ProcessSection from "./components/ProcessSection";
 import ServicesShowcase from "./components/ServicesShowcase";
@@ -14,7 +13,6 @@ export default function Home() {
       <ServicesShowcase />
       <ProcessSection />
       <Testimonials />
-      <BrandElevationCTA />
     </main>
   );
 }
