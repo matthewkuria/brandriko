@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
     domains: [
       'cdn.pixabay.com',
       'images.pexels.com',
-      'images.unsplash.com'
+      'images.unsplash.com',
+      'res.cloudinary.com'
     ],
   },
   //  output: 'export',
