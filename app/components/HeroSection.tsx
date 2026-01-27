@@ -20,7 +20,7 @@ export default function HeroSection() {
       {/* <div className="absolute inset-0 bg-bla bg-opacity-50"></div> */}
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center lg:text-left" data-aos="fade-right">
+          <div className="text-center lg:text-left" data-aos="fade-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 mt-6">
               Elevate Your Brand with Powerful Digital Solutions
             </h1>
@@ -43,7 +43,7 @@ export default function HeroSection() {
               </Link>
             </div>
           </div>
-          <div className="hidden lg:block" data-aos="fade-left">
+          <div className="hidden lg:block" data-aos="fade-down">
             <div className="relative w-full h-[400px]">
               <Image
                 src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg"
