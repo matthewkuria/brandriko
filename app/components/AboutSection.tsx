@@ -29,7 +29,7 @@ export default function AboutSection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div data-aos="fade-right">
+          <div data-aos="fade-down">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Transforming Businesses Through Digital Excellence
             </h2>
@@ -49,7 +49,7 @@ export default function AboutSection() {
             </div>
           </div>
           
-          <div className="relative" data-aos="fade-left">
+          <div className="relative" data-aos="fade-up">
             <div className="relative w-full h-[400px] rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg"
