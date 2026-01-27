@@ -674,7 +674,7 @@ export default function ServicesCTA() {
                 <i className="fa-solid fa-gift mr-2"></i>
                 Claim Free Hosting
               </Link>
-              <a href="tel:+254XXXXXXXXX" className="btn btn-outline btn-lg text-white hover:bg-white hover:text-primary">
+              <a href="tel:+254748421758" className="btn btn-outline btn-lg text-white hover:bg-white hover:text-primary">
                 <i className="fa-solid fa-phone mr-2"></i>
                 Call Now: +254 748 421 758
               </a>

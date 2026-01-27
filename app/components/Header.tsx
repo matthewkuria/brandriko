@@ -7,11 +7,11 @@ import { usePathname } from 'next/navigation'
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/#about' },
+  { name: 'Who We Are', href: '/#about' },
   { name: 'Services', href: '/services' },
-  { name: 'Portfolio', href: '/portfolio' },  
+  { name: 'Our Work', href: '/portfolio' },  
   { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Contact Us', href: '/contact' },
 ]
 
 export default function Header() {

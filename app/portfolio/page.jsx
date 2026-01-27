@@ -34,7 +34,7 @@ const portfolioProjects = [
   {
     id: 3,
     title: "Thika Greens Golf Resort",
-    category: "Web Development",
+    category: "Full Stack Development",
     description: "A Kenyan 5-star golf resort website showcasing restaurant, accomodation, amenities, golf-course, and booking options.",
     image: "https://res.cloudinary.com/dwhba39zm/image/upload/v1769512465/screencapture-thikagreensgolf-co-ke-2026-01-27-13_42_49_az7nkg.png",
     color: "from-cyan-600 to-blue-600",
@@ -212,37 +212,18 @@ export default function PortfolioSection() {
     : portfolioProjects.filter(project => project.category === activeFilter);
 
   return (
-    <section className="py-20 bg-base-200" id="portfolio">
+    <section className="py-20 bg-base-200 mt-5" id="portfolio">
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <div className="text-center mb-16" data-aos="fade-up">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Our Portfolio
+            Our Work
           </h1>
           <div className="divider divider-primary w-24 mx-auto"></div>
           <p className="text-lg max-w-3xl mx-auto mb-8">
             Discover our successful web development and digital marketing projects for businesses across Kenya
-          </p>
+          </p>          
           
-          {/* Statistics */}
-          <div className="stats stats-vertical lg:stats-horizontal shadow bg-base-100 mb-8">
-            <div className="stat place-items-center">
-              <div className="stat-value text-primary">15+</div>
-              <div className="stat-desc">Web Projects</div>
-            </div>
-            <div className="stat place-items-center">
-              <div className="stat-value text-secondary">95%</div>
-              <div className="stat-desc">Client Satisfaction</div>
-            </div>
-            <div className="stat place-items-center">
-              <div className="stat-value text-accent">30+</div>
-              <div className="stat-desc">Technologies Used</div>
-            </div>
-            <div className="stat place-items-center">
-              <div className="stat-value">100%</div>
-              <div className="stat-desc">On-time Delivery</div>
-            </div>
-          </div>
         </div>
 
         {/* Filter Buttons */}
@@ -374,7 +355,7 @@ export default function PortfolioSection() {
                   Get Free Consultation
                 </Link>
                 <a
-                  href="tel:+254XXXXXXXXX"
+                  href="tel:+254748421758"
                   className="btn btn-outline btn-lg text-white hover:bg-white hover:text-secondary"
                 >
                   <i className="fa-solid fa-phone mr-2"></i>
