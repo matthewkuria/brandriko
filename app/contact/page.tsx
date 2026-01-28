@@ -38,7 +38,7 @@ export default function ContactPage() {
                         type="text" 
                         id="name" 
                         className="input input-bordered w-full" 
-                        placeholder="John Doe" 
+                        placeholder="Enter Your Name" 
                         required 
                       />
                     </div>
@@ -48,7 +48,7 @@ export default function ContactPage() {
                         type="email" 
                         id="email" 
                         className="input input-bordered w-full" 
-                        placeholder="john@example.com" 
+                        placeholder="Email Address" 
                         required 
                       />
                     </div>
