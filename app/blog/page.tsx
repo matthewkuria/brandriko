@@ -17,6 +17,7 @@ async function getBlogPosts() {
   const posts = await client.fetch(blogPostsQuery)
   return posts
 }
+
 export default async function BlogPage() {
   const [posts, categories] = await Promise.all([
     getBlogPosts(),
@@ -26,21 +27,18 @@ export default async function BlogPage() {
   return (
     <main>
       <BlogHero />
-      
       <div className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
           <div className="lg:col-span-2">
             <BlogGrid posts={posts} />
           </div>
-          
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <BlogSidebar categories={categories} />
           </div>
         </div>
       </div>
-      
       {/* <NewsletterCTA /> */}
     </main>
   )

@@ -1,10 +1,9 @@
-// app/blog/[slug]/page.tsx
-import { client } from '@/sanity/lib/client'
-import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
-import { notFound } from 'next/navigation'
 import { format } from 'date-fns'
+import { client } from '@/sanity/lib/client'
+import { notFound } from 'next/navigation'
+import { urlFor } from '@/sanity/lib/image'
 
 // Define the props interface
 interface PageProps {

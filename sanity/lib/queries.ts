@@ -6,7 +6,7 @@ export const blogPostsQuery = groq`*[_type == "post"] | order(publishedAt desc) 
   title,
   slug,
   excerpt,
-  mainImage,
+  image,
   publishedAt,
   "author": author->{name, image},
   "categories": categories[]->{title, slug},

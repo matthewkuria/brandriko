@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { format } from 'date-fns'
@@ -8,7 +10,14 @@ interface BlogPost {
   title: string
   slug: { current: string }
   excerpt: string
-  mainImage: any
+   image?: {
+    _type: 'image'
+    alt: string
+    asset: {
+      _ref: string
+      _type: 'reference'
+    }
+  }
   publishedAt: string
   author: {
     name: string
@@ -54,8 +63,8 @@ export default function BlogGrid({ posts, priorityIndices = [0, 1, 2] }: BlogGri
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts.map((post, index) => {
         const isPriority = priorityIndices.includes(index)
-        const imageUrl = post.mainImage 
-          ? urlFor(post.mainImage)
+        const imageUrl = post.image
+          ? urlFor(post.image)
               .width(IMAGE_CONFIG.card.width)
               .url()
           : null
@@ -84,7 +93,7 @@ export default function BlogGrid({ posts, priorityIndices = [0, 1, 2] }: BlogGri
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   placeholder="blur"
-                  blurDataURL={post.mainImage ? urlFor(post.mainImage)
+                  blurDataURL={post.image ? urlFor(post.image)
                     .width(20)
                     .url() : undefined}
                   onError={(e) => {

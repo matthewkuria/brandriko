@@ -8,7 +8,8 @@ const nextConfig: NextConfig = {
       'cdn.pixabay.com',
       'images.pexels.com',
       'images.unsplash.com',
-      'res.cloudinary.com'
+      'res.cloudinary.com', 
+      'cdn.sanity.io'
     ],
   },
   //  output: 'export',
