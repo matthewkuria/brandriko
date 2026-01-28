@@ -224,30 +224,7 @@ export default function ServicesCTA() {
 
   return (
     <>
-      {/* Hero CTA */}
-      <section className="py-20 bg-gradient-secondary text-primary-content">
-        <div className="container mx-auto px-4 text-center" data-aos="fade-up">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6">
-            Complete Digital Solutions Packages
-          </h1>
-          <p className="text-xl opacity-90 max-w-3xl mx-auto mb-8">
-            Everything you need for digital success: Website + Graphics + Social Media + Google Business
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="#packages" className="btn btn-primary btn-lg">
-              <i className="fa-solid fa-gem mr-2"></i>
-              View Packages
-            </Link>
-            <a href="tel:+254748421758" className="btn btn-outline btn-lg text-white hover:bg-white hover:text-secondary">
-              <i className="fa-solid fa-phone mr-2"></i>
-              Call for Custom Quote
-            </a>
-          </div>
-          <p className="text-sm opacity-80 mt-6">
-            All packages include FREE support period • Based in Nakuru, Kenya
-          </p>
-        </div>
-      </section>
+      
 
       {/* Value Proposition */}
       <section className="py-20 bg-base-100">

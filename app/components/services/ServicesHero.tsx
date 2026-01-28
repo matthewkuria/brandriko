@@ -15,9 +15,9 @@ export default function ServicesHero() {
   }, [])
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden text-white ">
       {/* Background with Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-secondary"></div>
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
@@ -30,7 +30,7 @@ export default function ServicesHero() {
         <div className="container mx-auto px-4 py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
-            <div className="text-center lg:text-left" data-aos="fade-right">
+            <div className="text-center lg:text-left mt-10" data-aos="fade-right">
               <div className="badge badge-primary badge-lg mb-6">
                 Digital Solutions in Kenya
               </div>
