@@ -1,98 +1,204 @@
-import { notFound } from 'next/navigation'
-import { PortableText } from '@portabletext/react'
-import Image from 'next/image'
-import { format } from 'date-fns'
+// app/blog/[slug]/page.tsx
 import { client } from '@/sanity/lib/client'
-import { blogPostBySlugQuery } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
+import Image from 'next/image'
+import { PortableText } from '@portabletext/react'
+import { notFound } from 'next/navigation'
+import { format } from 'date-fns'
 
+// Define the props interface
 interface PageProps {
-  params: {
-    slug: string
-  }
+  params: Promise<{ slug: string }>
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
-export default async function BlogPostPage({ params }: PageProps) {
-  const post = await client.fetch(blogPostBySlugQuery, { slug: params.slug })
+// Fetch post data
+async function getPost(slug: string) {
+  const query = `*[_type == "post" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    body,
+    mainImage {
+      asset->{
+        _id,
+        url,
+        metadata {
+          dimensions
+        }
+      },
+      alt,
+      caption
+    },
+    author->{
+      name,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      },
+      bio
+    },
+    categories[]->{
+      title,
+      slug
+    }
+  }`
 
-  if (!post) {
-    notFound()
-  }
-
-  return (
-    <article className="max-w-4xl mx-auto px-4 py-12">
-      {/* Header */}
-      <header className="mb-12 mt-10">
-        <div className="flex flex-wrap gap-2 mb-6">
-          {post.categories?.map((cat: any) => (
-            <span key={cat.slug.current} className="badge badge-primary">
-              {cat.title}
-            </span>
-          ))}
-        </div>
-        
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
-        
-        <div className="flex items-center gap-4 mb-8">
-          {post.author?.image && (
-            <div className="avatar">
-              <div className="w-12 h-12 rounded-full ring ring-primary ring-offset-2">
-                <Image
-                  src={urlFor(post.author.image).width(100).height(100).url()}
-                  alt={post.author.name}
-                  width={48}
-                  height={48}
-                  className="rounded-full"
-                />
-              </div>
-            </div>
-          )}
-          <div>
-            <p className="font-bold">{post.author?.name}</p>
-            <p className="text-gray-600">
-              {format(new Date(post.publishedAt), 'MMMM dd, yyyy')}
-            </p>
-          </div>
-        </div>
-
-        {post.mainImage && (
-          <div className="relative h-96 mb-8 rounded-xl overflow-hidden">
-            <Image
-              src={urlFor(post.mainImage).width(1200).height(600).url()}
-              alt={post.title}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        )}
-      </header>
-
-      {/* Content */}
-      <div className="prose prose-lg max-w-none">
-        {post.excerpt && (
-          <div className="text-xl text-gray-600 italic mb-8 border-l-4 border-primary pl-4">
-            {post.excerpt}
-          </div>
-        )}
-        
-        {post.body && <PortableText value={post.body} />}
-      </div>
-    </article>
-  )
+  const post = await client.fetch(query, { slug })
+  return post
 }
 
-export async function generateMetadata({ params }: PageProps) {
-  const post = await client.fetch(blogPostBySlugQuery, { slug: params.slug })
+// Generate static params
+export async function generateStaticParams() {
+  const query = `*[_type == "post"] {
+    slug {
+      current
+    }
+  }`
+  
+  const posts = await client.fetch(query)
+  return posts.map((post: { slug: { current: string } }) => ({
+    slug: post.slug.current,
+  }))
+}
+
+// Generate metadata
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = await getPost(slug)
   
   if (!post) {
     return {
       title: 'Post Not Found',
     }
   }
-
+  
   return {
-    title: `${post.title} | Brandriko Blog`,
+    title: `${post.title} | My Blog`,
     description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: post.mainImage?.asset?.url ? [post.mainImage.asset.url] : [],
+    },
   }
+}
+
+// Main page component
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params
+  const post = await getPost(slug)
+
+  if (!post) {
+    notFound()
+  }
+
+  const imageUrl = post.mainImage 
+    ? urlFor(post.mainImage).width(1200).url()
+    : null
+
+  const authorImageUrl = post.author?.image
+    ? urlFor(post.author.image).width(100).url()
+    : null
+
+  return (
+    <article className="max-w-4xl mx-auto px-4 py-8 mt-20 ">
+      {/* Header */}
+      <header className="mb-8">
+        <div className="flex items-center gap-2 mb-4">
+          {post.categories?.map((category: any) => (
+            <span 
+              key={category.slug.current} 
+              className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+            >
+              {category.title}
+            </span>
+          ))}
+        </div>
+        
+        <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+        
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-3">
+            {authorImageUrl && (
+              <Image
+                src={authorImageUrl}
+                alt={post.author.name}
+                width={48}
+                height={48}
+                className="rounded-full"
+              />
+            )}
+            <div>
+              <p className="font-medium">{post.author?.name || 'Unknown Author'}</p>
+              <p className="text-gray-600 text-sm">
+                {format(new Date(post.publishedAt), 'MMMM dd, yyyy')}
+              </p>
+            </div>
+          </div>
+          
+          <div className="text-sm text-gray-500">
+            {Math.ceil(post.body?.length / 5)} min read
+          </div>
+        </div>
+      </header>
+
+      {/* Featured Image */}
+      {imageUrl && (
+        <div className="mb-8 rounded-lg overflow-hidden">
+          <Image
+            src={imageUrl}
+            alt={post.mainImage.alt || post.title}
+            width={1200}
+            height={630}
+            className="w-full h-auto"
+            priority
+          />
+          {post.mainImage.caption && (
+            <p className="text-center text-gray-600 mt-2 text-sm">
+              {post.mainImage.caption}
+            </p>
+          )}
+        </div>
+      )}
+
+      {/* Excerpt */}
+      {post.excerpt && (
+        <div className="mb-8 text-lg text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2">
+          {post.excerpt}
+        </div>
+      )}
+
+      {/* Content */}
+      <div className="prose prose-lg max-w-none mb-12">
+        <PortableText value={post.body} />
+      </div>
+
+      {/* Author Bio */}
+      {post.author?.bio && (
+        <div className="border-t pt-8 mt-12">
+          <h2 className="text-2xl font-bold mb-4">About the Author</h2>
+          <div className="flex items-start gap-4">
+            {authorImageUrl && (
+              <Image
+                src={authorImageUrl}
+                alt={post.author.name}
+                width={80}
+                height={80}
+                className="rounded-full flex-shrink-0"
+              />
+            )}
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{post.author.name}</h3>
+              <p className="text-gray-700">{post.author.bio}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </article>
+  )
 }

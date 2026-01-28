@@ -45,14 +45,7 @@ export default async function BlogPage() {
     </main>
   )
 }
-export function Loading() {
-  return (
-    <div>
-      <div className="h-8 w-48 bg-gray-200 rounded animate-pulse mb-8" />
-      <BlogGridSkeleton count={6} />
-    </div>
-  )
-}
+
 export async function generateMetadata() {
   return {
     title: 'Blog | Brandriko Digital Solutions - Digital Marketing Insights',
