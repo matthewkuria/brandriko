@@ -5,7 +5,6 @@ import { client } from '@/sanity/lib/client'
 import { notFound } from 'next/navigation'
 import { urlFor } from '@/sanity/lib/image'
 
-// Correct PageProps type for App Router
 interface PageProps {
   params: Promise<{ slug: string }>
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }> 
@@ -135,7 +134,7 @@ export default async function BlogPostPage(props: PageProps) {
   const readingTime = Math.ceil(wordCount / 200)
 
   return (
-    <article className="max-w-4xl mx-auto px-4 py-12">
+    <article className="max-w-4xl mx-auto px-4 py-12 mt-20">
       {/* Post Header */}
       <header className="mb-8">
         <div className="flex flex-wrap gap-2 mb-4">
