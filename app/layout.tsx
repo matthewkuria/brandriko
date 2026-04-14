@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/ui/WhatsAppButton'
 import CookieConsent from './components/ui/CookieConsent'
+import { ScrollNavigationMenu } from './components/scroll-navigation-menu'
 
 
 
@@ -28,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="dark">
       <head>
         <link rel="canonical" href="https://brandrikodigital.co.ke" />
         <meta name="robots" content="index, follow" />
@@ -37,7 +38,8 @@ export default function RootLayout({
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" async />
       </head>
       <body className={inter.className}>
-        <Header />
+        {/* <Header /> */}
+        <ScrollNavigationMenu />
         {children}
         <Footer />
         <WhatsAppButton />

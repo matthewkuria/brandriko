@@ -16,15 +16,15 @@ export default function AboutSection() {
   }, [])
 
   return (
-    <section className="py-20 bg-base-200" id="about">
+    <section className="py-20 " id="about">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16" data-aos="fade-up">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            About Brandriko Digital Solutions
+             Hospitality Web Design & Digital Solutions in Kenya
           </h1>
           <div className="divider divider-primary w-24 mx-auto"></div>
           <p className="text-lg max-w-3xl mx-auto mb-6">
-            Your Trusted Digital Partner in Nakuru, Kenya
+              Helping Hotels, Restaurants & Hospitality Brands Grow Through Smart Digital Solutions
           </p>
         </div>
 
@@ -33,18 +33,21 @@ export default function AboutSection() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Transforming Businesses Through Digital Excellence
             </h2>
-            <div className="space-y-4 text-base-content/80">
+            <div className="space-y-4">
               <p>
-                <strong>Brandriko Digital Solutions</strong> is a registered business in Kenya offering cutting-edge digital solutions. Based in Nakuru, we help businesses across Kenya grow through strategic digital branding, marketing, web technology, and modern solutions.
+                <strong>Brandriko Digital Solutions</strong> is a hospitality-focused web design and digital solutions agency based in Nakuru, Kenya. We specialize in building modern websites, booking systems, and digital platforms for hotels, restaurants, and hospitality businesses.
               </p>
+
               <p>
-                With over 5 years of experience and 100+ successful projects for more than 50 satisfied clients, we&apos;ve established ourselves as a premier digital agency in the region.
+                Our solutions are designed to help hospitality brands increase online visibility, attract more customers, and drive bookings through high-performing, mobile-friendly websites.
               </p>
+
               <p>
-                Our team combines local market knowledge with international design standards to deliver solutions that resonate with Kenyan audiences while maintaining global quality benchmarks.
+                With over 5 years of experience and many successful projects, we combine local market expertise with global design standards to deliver results that matter in the competitive hospitality industry.
               </p>
+
               <p>
-                Whether you&apos;re a startup looking to establish your online presence or an established business seeking to expand digitally, we have the expertise to help you achieve your goals.
+                Whether you're running a hotel, restaurant, Airbnb, or resort, we help you transform your digital presence into a powerful growth engine.
               </p>
             </div>
           </div>
@@ -122,10 +125,10 @@ export default function AboutSection() {
         </div>
 
         {/* Why Choose Us */}
-        <div className="bg-base-100 rounded-2xl p-8 shadow-xl mb-16" data-aos="fade-up">
+        <div className=" rounded-2xl p-8 shadow-xl mb-16" data-aos="fade-up">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Why Businesses in Nakuru Choose Brandriko
+              Why Hotels & Restaurants in Kenya Choose Brandriko
             </h2>
             <div className="divider divider-primary w-24 mx-auto"></div>
           </div>
@@ -133,24 +136,20 @@ export default function AboutSection() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: 'Local Expertise',
-                description: 'Deep understanding of Kenyan market dynamics and consumer behavior',
-                icon: 'fa-map-marker-alt'
+                title: 'Local Hospitality Expertise',
+                description: 'Deep understanding of the Kenyan hospitality market and customer behavior',
               },
               {
-                title: 'Proven Results',
-                description: 'Track record of 95% client satisfaction and measurable business growth',
-                icon: 'fa-chart-line'
+                title: 'More Bookings',
+                description: 'We design websites and systems that increase reservations and customer engagement',
               },
               {
-                title: 'End-to-End Solutions',
-                description: 'Complete digital transformation from strategy to execution',
-                icon: 'fa-sync-alt'
+                title: 'Complete Digital Solutions',
+                description: 'From websites to booking systems and QR ordering for restaurants',
               },
               {
-                title: 'Ongoing Support',
-                description: 'Continuous optimization and support for long-term success',
-                icon: 'fa-headset'
+                title: 'Ongoing Growth Support',
+                description: 'We continuously optimize your digital presence for better results',
               }
             ].map((item, index) => (
               <div key={index} className="text-center p-4">
@@ -158,7 +157,7 @@ export default function AboutSection() {
                   <i className={`fa-solid ${item.icon} text-primary text-xl`}></i>
                 </div>
                 <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-base-content/70">{item.description}</p>
+                <p className="text-sm">{item.description}</p>
               </div>
             ))}
           </div>
