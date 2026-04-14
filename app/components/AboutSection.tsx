@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import Image from 'next/image'
 import AOS from 'aos'
+// @ts-ignore
 import 'aos/dist/aos.css'
 import Link from 'next/link'
 
@@ -47,7 +48,7 @@ export default function AboutSection() {
               </p>
 
               <p>
-                Whether you're running a hotel, restaurant, Airbnb, or resort, we help you transform your digital presence into a powerful growth engine.
+                Whether you are running a hotel, restaurant, Airbnb, or resort, we help you transform your digital presence into a powerful growth engine.
               </p>
             </div>
           </div>
@@ -138,18 +139,22 @@ export default function AboutSection() {
               {
                 title: 'Local Hospitality Expertise',
                 description: 'Deep understanding of the Kenyan hospitality market and customer behavior',
+                icon: 'fa-map-marker-alt'
               },
               {
                 title: 'More Bookings',
                 description: 'We design websites and systems that increase reservations and customer engagement',
+                icon: 'fa-calendar-check'
               },
               {
                 title: 'Complete Digital Solutions',
                 description: 'From websites to booking systems and QR ordering for restaurants',
+                icon: 'fa-code'
               },
               {
                 title: 'Ongoing Growth Support',
                 description: 'We continuously optimize your digital presence for better results',
+                icon: 'fa-chart-line'
               }
             ].map((item, index) => (
               <div key={index} className="text-center p-4">
