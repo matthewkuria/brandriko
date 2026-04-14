@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import brandrikoLogo from "@/public/brandriko_dullbgGraphics_logo.png"
 
 const quickLinks = [
   { name: 'Home', href: '/' },
@@ -16,7 +17,6 @@ const services = [
   { name: 'Social Media Branding', href: '/services' },
   { name: 'Web Development', href: '/services' },
   { name: 'SEO Services', href: '/services' },
-  { name: 'Digital Marketing', href: '/services' },
 ]
 
 export default function Footer() {
@@ -27,11 +27,11 @@ export default function Footer() {
           {/* Brand & Social */}
           <div>
             <Link href="/" className="text-2xl font-bold">
-              <Image alt='Brandriko digital solutions logo' src="/brandriko_logo.png" width={200} height={200}/>
+              <Image alt='Brandriko digital solutions logo' src={brandrikoLogo} width={200} height={200}/>
             </Link>
             <p className="mt-4 opacity-80">
-              We are a premier digital solutions agency based in Nakuru, Kenya, 
-              specializing in web design, branding, and digital marketing.
+              We are a premier digital solutions agency based in Nakuru, serving the hospitality industry throughout Kenya, 
+              specializing in web design, branding, and tech support.
             </p>
             <div className="flex space-x-4 mt-6">
               {['facebook-f', 'twitter', 'instagram', 'linkedin-in'].map((icon) => (
@@ -93,7 +93,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <i className="fa-solid fa-clock mt-1 mr-3 text-primary"></i>
-                <span className="opacity-80">Mon - Fri: 8:00AM - 6:00PM</span>
+                <span className="opacity-80">Mon - Fri: 8:00AM - 5:00PM</span>
               </li>
             </ul>
           </div>

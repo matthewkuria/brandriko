@@ -17,8 +17,11 @@ import {
   Settings,
   Mail,
   Info,
+  BookAudio,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
+import brandrikoLogo from "@/public/brandriko_dullbgGraphics_logo.png"
 
 /* ================== TYPES ================== */
 
@@ -40,8 +43,8 @@ const defaultMenuItems: MenuItem[] = [
   { id: 1, title: "Home", url: "/", icon: <Home className="w-5 h-5" /> },
   { id: 2, title: "About", url: "/about", icon: <User className="w-5 h-5" /> },
   { id: 3, title: "Services", url: "/services", icon: <Settings className="w-5 h-5" /> },
+  { id: 3, title: "Blog", url: "/blog", icon: <BookAudio className="w-5 h-5" /> },
   { id: 4, title: "Contact", url: "/contact", icon: <Mail className="w-5 h-5" /> },
-  { id: 5, title: "Info", url: "/info", icon: <Info className="w-5 h-5" /> },
 ]
 
 /* ================== VARIANTS (OUTSIDE COMPONENT) ================== */
@@ -129,7 +132,7 @@ export const ScrollNavigationMenu: React.FC<ScrollNavbarProps> = ({
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           {/* LOGO */}
           <Link href="/" className="text-xl font-bold">
-            Brandriko
+            <Image src={brandrikoLogo} width={70} height={70} alt="Brandriko Digital solutions logo"/>
           </Link>
 
           {/* DESKTOP MENU */}

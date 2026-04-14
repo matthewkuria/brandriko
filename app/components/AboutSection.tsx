@@ -86,9 +86,9 @@ export default function AboutSection() {
           </div>
           
           <div className="card bg-base-100 shadow-xl" data-aos="fade-up" data-aos-delay="200">
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center  text-center">
               <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
-                <i className="fa-solid fa-binoculars text-secondary text-2xl"></i>
+                <i className="fa-solid fa-binoculars text-primary text-2xl"></i>
               </div>
               <h3 className="card-title text-xl">Our Vision</h3>
               <p className="text-base-content/70">
@@ -167,42 +167,11 @@ export default function AboutSection() {
             ))}
           </div>
         </div>
-
-        {/* Our Impact */}
-        <div className="mb-16" data-aos="fade-up">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-            Our Impact in Numbers
-          </h2>
-          <div className="stats stats-vertical lg:stats-horizontal shadow w-full bg-gradient-secondary text-primary-content">
-            <div className="stat place-items-center">
-              <div className="stat-value text-4xl md:text-5xl">50+</div>
-              <div className="stat-desc">Satisfied Clients</div>
-              <div className="stat-desc text-sm opacity-80">Across Kenya</div>
-            </div>
-            
-            <div className="stat place-items-center">
-              <div className="stat-value text-4xl md:text-5xl">100+</div>
-              <div className="stat-desc">Projects Completed</div>
-              <div className="stat-desc text-sm opacity-80">Successful Deliveries</div>
-            </div>
-            
-            <div className="stat place-items-center">
-              <div className="stat-value text-4xl md:text-5xl">5+</div>
-              <div className="stat-desc">Years Experience</div>
-              <div className="stat-desc text-sm opacity-80">Industry Expertise</div>
-            </div>
-            
-            <div className="stat place-items-center">
-              <div className="stat-value text-4xl md:text-5xl">95%</div>
-              <div className="stat-desc">Client Satisfaction</div>
-              <div className="stat-desc text-sm opacity-80">Repeat Business Rate</div>
-            </div>
-          </div>
-        </div>
+       
 
         {/* CTA */}
         <div className="text-center mt-16" data-aos="fade-up">
-          <div className="alert alert-info max-w-3xl mx-auto mb-8">
+          <div className="max-w-3xl mx-auto mb-8">
             <div className="flex flex-col items-center">
               <i className="fa-solid fa-comments text-3xl mb-4"></i>
               <h3 className="text-xl font-bold mb-2">Ready to Transform Your Business?</h3>
@@ -222,7 +191,6 @@ export default function AboutSection() {
               Schedule Free Consultation
             </Link>
           </div>
-          
           <p className="text-sm text-base-content/60 mt-6">
             Based in Nakuru • Serving All of Kenya • Registered Business in Kenya
           </p>

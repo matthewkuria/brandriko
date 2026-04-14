@@ -17,7 +17,6 @@ export default function HeroSection() {
   }, [])
 
   return (
-    /* Using bg-gradient-secondary to match your new brand palette */
     <section className="bg-brand-charcoal text-white relative overflow-hidden min-h-screen flex items-center">
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -34,7 +33,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
                 href="/contact"
-                className="btn-gradient px-8 py-4 rounded-full text-white font-bold text-center hover:shadow-lg transition-all"
+                className="btn-gradient px-8 py-4 rounded-full text-white font-bold text-center hover:bg-white hover:text-neutral transition-all outline"
               >
                 Explore Services
               </Link>
@@ -64,7 +63,7 @@ export default function HeroSection() {
       </div>
       
       {/* Bottom fade effect to transition into the next white section */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t"></div>
     </section>
   )
 }

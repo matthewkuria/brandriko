@@ -73,26 +73,7 @@ export default function ServicesShowcase() {
           <div className="divider divider-primary w-24 mx-auto"></div>
           <p className="text-lg max-w-3xl mx-auto mb-8">
             Comprehensive solutions designed specifically for businesses in Nakuru and across Kenya
-          </p>
-          
-          {/* Quick Stats */}
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <div className="stat">
-              <div className="stat-title">Delivery Time</div>
-              <div className="stat-value text-primary text-2xl">2-6 Weeks</div>
-              <div className="stat-desc">Depending on package</div>
-            </div>
-            <div className="stat">
-              <div className="stat-title">Support Included</div>
-              <div className="stat-value text-secondary text-2xl">Free</div>
-              <div className="stat-desc">With every package</div>
-            </div>
-            <div className="stat">
-              <div className="stat-title">Client Satisfaction</div>
-              <div className="stat-value text-accent text-2xl">95%</div>
-              <div className="stat-desc">Happy clients</div>
-            </div>
-          </div>
+          </p>      
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -152,7 +133,7 @@ export default function ServicesShowcase() {
 
         {/* Package Integration Note */}
         <div className="mt-16 text-center" data-aos="fade-up">
-          <div className="alert alert-info max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <div className="flex flex-col items-center">
               <i className="fa-solid fa-boxes-packing text-2xl mb-2"></i>
               <h3 className="font-bold text-lg mb-2">All Services Included in Complete Packages</h3>

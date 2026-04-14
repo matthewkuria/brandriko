@@ -83,7 +83,7 @@ export default function ProcessSection() {
               <div className="stat-desc">Structured Process</div>
             </div>
             <div className="stat place-items-center">
-              <div className="stat-value text-secondary text-2xl">2-6 Weeks</div>
+              <div className="stat-value text-amber-50 text-2xl">2-6 Weeks</div>
               <div className="stat-desc">Average Timeline</div>
             </div>
             <div className="stat place-items-center">

@@ -134,27 +134,8 @@ export default function Testimonials() {
           <div className="divider divider-primary w-24 mx-auto"></div>
           <p className="text-lg max-w-3xl mx-auto mb-8">
             Discover how businesses across Kenya are achieving remarkable results with our digital solutions
-          </p>
-          
-          {/* Stats Overview */}
-          <div className="stats stats-vertical lg:stats-horizontal shadow bg-base-100 mb-8">
-            <div className="stat place-items-center">
-              <div className="stat-value text-primary">95%</div>
-              <div className="stat-desc">Client Satisfaction</div>
-            </div>
-            <div className="stat place-items-center">
-              <div className="stat-value text-secondary">200%</div>
-              <div className="stat-desc">Avg. Growth</div>
-            </div>
-            <div className="stat place-items-center">
-              <div className="stat-value text-accent">50+</div>
-              <div className="stat-desc">Happy Clients</div>
-            </div>
-            <div className="stat place-items-center">
-              <div className="stat-value">100%</div>
-              <div className="stat-desc">On-time Delivery</div>
-            </div>
-          </div>
+          </p>      
+         
         </div>
 
         {/* Testimonials Grid */}
@@ -314,7 +295,7 @@ export default function Testimonials() {
 
         {/* Featured Case Study */}
         <div className="mb-16" data-aos="fade-up">
-          <div className="card lg:card-side bg-gradient-secondary shadow-xl">
+          <div className="card lg:card-side  shadow-xl">
             <figure className="lg:w-2/5">
               <Image
                 src="https://res.cloudinary.com/dwhba39zm/image/upload/v1767037074/screencapture-pyrowiseenergyltd_hmdmxt.png"
@@ -365,35 +346,7 @@ export default function Testimonials() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="text-center" data-aos="fade-up">
-          <div className="alert alert-info max-w-3xl mx-auto">
-            <div className="flex flex-col items-center">
-              <i className="fa-solid fa-award text-3xl mb-4 text-primary"></i>
-              <h3 className="text-xl font-bold mb-2">Trusted by Businesses Across Kenya</h3>
-              <p className="text-base-content/80">
-                From startups in Nakuru to established companies in Nairobi, businesses trust Brandriko for digital transformation.
-              </p>
-            </div>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-8 mt-8">
-            {[
-              'Nakuru Enterprises',
-              'Nairobi Construction',
-              'Mombasa Tourism',
-              'Eldoret Tech',
-              'Kisumu Retail'
-            ].map((location, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <i className="fa-solid fa-check text-success"></i>
-                <span className="font-medium">{location}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        </div>       
 
         {/* CTA Section */}
         <div className="mt-16 text-center" data-aos="fade-up">
