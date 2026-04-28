@@ -37,7 +37,7 @@ export default function Footer() {
               {['facebook-f', 'twitter', 'instagram', 'linkedin-in'].map((icon) => (
                 <a
                   key={icon}
-                  href="#"
+                  href="https://web.facebook.com/profile.php?id=61578877047680"
                   className="btn btn-ghost btn-circle"
                   aria-label={`Follow us on ${icon}`}
                 >
