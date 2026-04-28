@@ -16,7 +16,7 @@ export default function AboutPage() {
       <section className="py-20 text-center bg-brand-charcoal text-white">
         <div className="container mx-auto px-4 max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            About Brandriko Digital Solutions
+            About <span className="text-brand-orange">Brandriko Digital </span>Solutions
           </h1>
           <p className="text-lg text-gray-300">
             Your trusted partner for affordable web design in Kenya—helping businesses build modern websites that attract customers and grow online.
