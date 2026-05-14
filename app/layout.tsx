@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import "./globals.css"
-import Header from './components/Header'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/ui/WhatsAppButton'
 import CookieConsent from './components/ui/CookieConsent'
@@ -38,7 +37,6 @@ export default function RootLayout({
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" async />
       </head>
       <body className={inter.className}>
-        {/* <Header /> */}
         <ScrollNavigationMenu />
         {children}
         <Footer />
