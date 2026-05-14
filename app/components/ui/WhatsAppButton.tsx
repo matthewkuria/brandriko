@@ -3,8 +3,8 @@
 export default function WhatsAppButton() {
   const handleWhatsAppClick = () => {
     // Replace with your WhatsApp number
-    const phoneNumber = '+254748421758'
-    const message = 'Hello Brandriko, I would like to inquire about your services.'
+    const phoneNumber = '+254718421758'
+    const message = 'Hello Brandriko, I would like to inquire about your website services.'
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
   }
