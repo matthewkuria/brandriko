@@ -30,7 +30,7 @@ export default function Footer() {
               <Image alt='Brandriko digital solutions logo' src={brandrikoLogo} width={200} height={200}/>
             </Link>
             <p className="mt-4 opacity-80">
-              We are a premier digital solutions agency based in Nakuru, serving the hospitality industry throughout Kenya, 
+              We are a premier digital solutions agency based in Nakuru, serving the SMEs and business throughout Kenya, 
               specializing in web design, branding, and tech support.
             </p>
             <div className="flex space-x-4 mt-6">
