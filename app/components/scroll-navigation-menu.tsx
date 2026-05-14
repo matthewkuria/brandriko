@@ -16,7 +16,6 @@ import {
   User,
   Settings,
   Mail,
-  Info,
   BookAudio,
 } from "lucide-react"
 import Link from "next/link"
@@ -37,27 +36,26 @@ interface ScrollNavbarProps {
   className?: string
 }
 
-/* ================== DEFAULT MENU ================== */
-
 const defaultMenuItems: MenuItem[] = [
-  { id: 1, title: "Home", url: "/", icon: <Home className="w-5 h-5" /> },
-  { id: 2, title: "About", url: "/about", icon: <User className="w-5 h-5" /> },
-  { id: 3, title: "Services", url: "/services", icon: <Settings className="w-5 h-5" /> },
-  { id: 4, title: "Our Work", url: "/portfolio", icon: <BookAudio className="w-5 h-5" /> },
-  { id: 6, title: "Contact", url: "/contact", icon: <Mail className="w-5 h-5" /> },
+  { id: 1, title: "Home", url: "/", icon: <Home className="w-4 h-4" /> },
+  { id: 2, title: "About", url: "/about", icon: <User className="w-4 h-4" /> },
+  { id: 3, title: "Services", url: "/services", icon: <Settings className="w-4 h-4" /> },
+  { id: 4, title: "Our Work", url: "/portfolio", icon: <BookAudio className="w-4 h-4" /> },
+  { id: 6, title: "Contact", url: "/contact", icon: <Mail className="w-4 h-4" /> },
 ]
 
-/* ================== VARIANTS (OUTSIDE COMPONENT) ================== */
+/* ================== VARIANTS ================== */
 
 const menuVariants: Variants = {
   closed: {
     opacity: 0,
-    scale: 0.85,
-    y: -40,
+    scale: 0.9,
+    y: 20,
+    filter: "blur(10px)",
     transition: {
       type: "spring",
-      stiffness: 260,
-      damping: 25,
+      stiffness: 300,
+      damping: 30,
       staggerChildren: 0.05,
       staggerDirection: -1,
     },
@@ -66,31 +64,20 @@ const menuVariants: Variants = {
     opacity: 1,
     scale: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: {
       type: "spring",
-      stiffness: 260,
+      stiffness: 300,
       damping: 25,
-      staggerChildren: 0.08,
+      delayChildren: 0.1,
+      staggerChildren: 0.07,
     },
   },
 }
 
 const itemVariants: Variants = {
-  closed: {
-    y: 20,
-    opacity: 0,
-    scale: 0.9,
-  },
-  open: {
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 22,
-    },
-  },
+  closed: { x: -10, opacity: 0 },
+  open: { x: 0, opacity: 1 },
 }
 
 /* ================== COMPONENT ================== */
@@ -105,125 +92,118 @@ export const ScrollNavigationMenu: React.FC<ScrollNavbarProps> = ({
 
   const { scrollY } = useScroll()
 
-  // ✅ Optimized scroll listener (no unnecessary re-renders)
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const next = latest > 100
-    setIsScrolled((prev) => (prev === next ? prev : next))
+    setIsScrolled(latest > 80)
   })
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev)
 
-  const items = React.useMemo(() => menuItems, [menuItems])
-
   return (
     <>
-      {/* ✅ Spacer prevents layout shift */}
-      <div className="h-16" />
-
-      {/* ================= NAVBAR ================= */}
+      {/* NAVBAR */}
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border will-change-transform ${className}`}
-        animate={{
-          y: isScrolled ? -80 : 0,
-          opacity: isScrolled ? 0 : 1,
-        }}
-        transition={{ duration: 0.25 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+          isScrolled 
+            ? "bg-transparent pointer-events-none" 
+            : "bg-black/80 backdrop-blur-md border-b border-gray-100"
+        } ${className}`}
+        initial={{ y: 0 }}
+        animate={{ y: isScrolled ? -100 : 0 }}
+        transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
       >
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          {/* LOGO */}
-          <Link href="/" className="text-xl font-bold">
-            <Image src={brandrikoLogo} width={70} height={70} alt="Brandriko Digital solutions logo"/>
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <Link href="/" className="relative z-10 hover:opacity-80 transition-opacity">
+            <Image src={brandrikoLogo} width={60} height={60} alt="Logo" className="object-contain" />
           </Link>
 
           {/* DESKTOP MENU */}
-          <div className="hidden md:flex space-x-6">
-            {items.map((item) => (
-              <div
+          <div className="hidden md:flex items-center gap-1 bg-gray-100/50 p-1 rounded-full border border-gray-200/50">
+            {menuItems.map((item) => (
+              <Link
                 key={item.id}
+                href={item.url}
                 onMouseEnter={() => setHoveredItem(item.id)}
                 onMouseLeave={() => setHoveredItem(null)}
-                className="relative"
+                className="relative px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2"
               >
-                <Link
-                  href={item.url}
-                  className="flex items-center gap-2 px-3 py-2 rounded-md hover:text-primary transition"
-                >
-                  {item.icon}
-                  {item.title}
-                </Link>
-
                 {hoveredItem === item.id && (
-                  <motion.div
-                    layout="position"
-                    className="absolute inset-0 bg-muted rounded-md -z-10"
+                  <motion.span
+                    layoutId="nav-hover"
+                    className="absolute inset-0 bg-white rounded-full shadow-sm border border-gray-200"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                   />
                 )}
-              </div>
+                <span className="relative z-10 flex items-center gap-2">
+                  {item.icon}
+                  {item.title}
+                </span>
+              </Link>
             ))}
           </div>
 
-          {/* MOBILE BUTTON */}
-          <button onClick={toggleMenu} className="md:hidden">
-            <Menu />
+          <button onClick={toggleMenu} className="md:hidden p-2 hover:bg-gray-100 rounded-full transition-colors">
+            <Menu className="w-6 h-6 text-gray-700" />
           </button>
         </div>
       </motion.nav>
 
-      {/* ================= FLOATING BUTTON ================= */}
-      <motion.button
-        onClick={toggleMenu}
-        style={{ pointerEvents: isScrolled ? "auto" : "none" }}
-        animate={{
-          scale: isScrolled ? 1 : 0.85,
-          opacity: isScrolled ? 1 : 0,
-        }}
-        transition={{ duration: 0.25 }}
-        className="fixed top-6 right-6 z-50 w-14 h-14 bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg will-change-transform"
-      >
-        <Menu />
-      </motion.button>
+      {/* FLOATING TRIGGER */}
+      <AnimatePresence>
+        {isScrolled && (
+          <motion.button
+            initial={{ scale: 0, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0, opacity: 0, y: 20 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={toggleMenu}
+            className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-orange-600 text-white rounded-full flex items-center justify-center shadow-2xl shadow-orange-200 border border-orange-500"
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </motion.button>
+        )}
+      </AnimatePresence>
 
-      {/* ================= POPUP MENU ================= */}
+      {/* OVERLAY MENU */}
       <AnimatePresence>
         {isMenuOpen && (
           <>
-            {/* BACKDROP */}
             <motion.div
-              className="fixed inset-0 bg-black/40 z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={toggleMenu}
+              className="fixed inset-0 bg-white/60 backdrop-blur-xl z-[60]"
             />
 
-            {/* MENU */}
             <motion.div
               variants={menuVariants}
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 will-change-transform"
+              className="fixed inset-0 flex items-center justify-center z-[70] pointer-events-none"
             >
-              <div className="bg-background border border-border p-6 rounded-2xl shadow-xl min-w-[280px] relative">
-                {/* CLOSE */}
-                <button
-                  onClick={toggleMenu}
-                  className="absolute top-3 right-3"
-                >
-                  <X />
-                </button>
-
-                {/* ITEMS */}
-                <div className="space-y-4 mt-6">
-                  {items.map((item) => (
+              <div className="w-[90%] max-w-sm bg-white border border-gray-100 rounded-[2.5rem] p-8 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.14)] pointer-events-auto">
+                <div className="flex flex-col gap-2">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold mb-4 ml-4">Navigation</p>
+                  {menuItems.map((item) => (
                     <motion.div key={item.id} variants={itemVariants}>
                       <Link
                         href={item.url}
                         onClick={toggleMenu}
-                        className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition"
+                        className="group flex items-center justify-between p-4 rounded-2xl hover:bg-orange-50 transition-all"
                       >
-                        {item.icon}
-                        {item.title}
+                        <div className="flex items-center gap-4">
+                          <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-white group-hover:text-orange-600 transition-colors shadow-sm">
+                            {item.icon}
+                          </div>
+                          <span className="text-lg font-semibold text-gray-800 group-hover:text-orange-700 transition-colors">
+                            {item.title}
+                          </span>
+                        </div>
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0">
+                           <div className="w-2 h-2 rounded-full bg-orange-600" />
+                        </div>
                       </Link>
                     </motion.div>
                   ))}
