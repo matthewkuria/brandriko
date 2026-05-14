@@ -17,13 +17,13 @@ export default function ContactForm() {
                   <label className="label">
                     <span className="label-text">Your Name</span>
                   </label>
-                  <input type="text" placeholder="John Doe" className="input input-bordered" required />
+                  <input type="text" placeholder="Your Name" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email Address</span>
                   </label>
-                  <input type="email" placeholder="john@example.com" className="input input-bordered" required />
+                  <input type="email" placeholder="Your Email" className="input input-bordered" required />
                 </div>
               </div>
               

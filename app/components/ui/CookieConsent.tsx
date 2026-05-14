@@ -42,7 +42,7 @@ export default function CookieConsent() {
   if (!showBanner) return null
 
   return (
-    <div className={`fixed bottom-0 left-0 w-full bg-white shadow-lg z-40 transform transition-transform duration-300 ${
+    <div className={`fixed bottom-0 left-0 w-full shadow-lg z-40 transform transition-transform duration-300 ${
       isVisible ? 'translate-y-0' : 'translate-y-full'
     }`}>
       <div className="container mx-auto py-4 px-6">
