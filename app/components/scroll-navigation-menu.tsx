@@ -44,7 +44,6 @@ const defaultMenuItems: MenuItem[] = [
   { id: 2, title: "About", url: "/about", icon: <User className="w-5 h-5" /> },
   { id: 3, title: "Services", url: "/services", icon: <Settings className="w-5 h-5" /> },
   { id: 4, title: "Our Work", url: "/portfolio", icon: <BookAudio className="w-5 h-5" /> },
-  { id: 5, title: "Blog", url: "/blog", icon: <BookAudio className="w-5 h-5" /> },
   { id: 6, title: "Contact", url: "/contact", icon: <Mail className="w-5 h-5" /> },
 ]
 
