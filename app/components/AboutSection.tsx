@@ -37,7 +37,7 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
 
           {/* Text */}
-          <div data-aos="fade-right">
+          <div data-aos="zoom-in">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">
               The Best Web Design Company in Kenya for Growing Businesses
             </h2>
@@ -64,7 +64,7 @@ export default function AboutSection() {
           </div>
 
           {/* Image */}
-          <div className="relative" data-aos="fade-left">
+          <div className="relative" data-aos="zoom-out">
             <div className="relative w-full h-[400px] rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg"

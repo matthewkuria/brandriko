@@ -24,67 +24,7 @@ export default function ContactPage() {
       {/* Contact Content */}
       <section className="py-20 bg-base-100">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-12">
-            {/* Contact Form */}
-            <div className="lg:w-1/2">
-              <div className="bg-white shadow-lg rounded-xl p-8">
-                <h2 className="text-3xl font-bold mb-6 text-secondary">Send Us a Message</h2>
-                
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block mb-2 font-medium">Your Name</label>
-                      <input 
-                        type="text" 
-                        id="name" 
-                        className="input input-bordered w-full" 
-                        placeholder="Enter Your Name" 
-                        required 
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block mb-2 font-medium">Email Address</label>
-                      <input 
-                        type="email" 
-                        id="email" 
-                        className="input input-bordered w-full" 
-                        placeholder="Email Address" 
-                        required 
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="service" className="block mb-2 font-medium">Service Interested In</label>
-                    <select id="service" className="select select-bordered w-full">
-                      <option value="">Select a service</option>
-                      <option>Digital Branding</option>
-                      <option>Graphic Design</option>
-                      <option>Website Design</option>
-                      <option>SEO Services</option>
-                      <option>Digital Marketing</option>
-                      <option>IT Support</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block mb-2 font-medium">Your Message</label>
-                    <textarea 
-                      id="message" 
-                      rows={5} 
-                      className="textarea textarea-bordered w-full" 
-                      placeholder="Tell us about your project..."
-                      required
-                    ></textarea>
-                  </div>
-
-                  <button type="submit" className="btn btn-primary text-white w-full py-4 text-lg">
-                    Send Message
-                  </button>
-                </form>
-              </div>
-            </div>
+          <div className="flex flex-col lg:flex-row gap-12">          
 
             {/* Contact Info */}
             <div className="lg:w-1/2">
