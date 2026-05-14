@@ -1,128 +1,185 @@
-'use client'
+'use client';
 
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaCalendarCheck, FaWhatsapp, FaLinkedinIn } from 'react-icons/fa';
+import Image from 'next/image';
 import Link from 'next/link';
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaCalendarCheck,
+  FaWhatsapp,
+  FaArrowRight,
+} from 'react-icons/fa';
+import { motion } from 'framer-motion';
+
+const contactItems = [
+  {
+    icon: <FaPhoneAlt />,
+    title: 'Call Us',
+    content: '+254 718 421 871',
+    sub: 'Available Mon - Sat, 8am - 6pm',
+    link: 'tel:+254718421871',
+    color: 'bg-blue-50 text-blue-600',
+  },
+  {
+    icon: <FaWhatsapp />,
+    title: 'WhatsApp',
+    content: 'Chat With Us',
+    sub: 'Fastest response time',
+    link: 'https://wa.me/254718421871',
+    color: 'bg-green-50 text-green-600',
+  },
+  {
+    icon: <FaEnvelope />,
+    title: 'Email Us',
+    content: 'info.brandriko.digital@gmail.com',
+    sub: 'Response within 24 hours',
+    link: 'mailto:info.brandriko.digital@gmail.com',
+    color: 'bg-orange-50 text-orange-600',
+  },
+  {
+    icon: <FaMapMarkerAlt />,
+    title: 'Visit Us',
+    content: 'Nakuru, Kenya',
+    sub: 'Central Business District',
+    link: '#map',
+    color: 'bg-slate-100 text-slate-700',
+  },
+];
 
 export default function ContactPage() {
   return (
-    <main className="bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-slate-900 text-white py-24 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[60%] bg-orange-600 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[60%] bg-blue-600 rounded-full blur-[120px]" />
-        </div>
-        
-        <div className="container relative z-10 mx-auto px-6 text-center mt-10">
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-widest uppercase bg-orange-600/20 text-orange-400 rounded-full border border-orange-600/30">
-            Get in Touch
-          </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
-            Ready to <span className="text-orange-500">Connect?</span>
-          </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Whether you have a specific project in mind or just want to explore the possibilities, we’re here to help you navigate the digital landscape.
-          </p>
+    <main className="overflow-hidden bg-white">
+      {/* HERO SECTION */}
+      <section className="relative isolate overflow-hidden bg-black/80 text-white">
+
+          {/* Phone Background Image */}
+          <div className="absolute inset-0 opacity-[0.08]">
+            <Image
+              src="https://images.pexels.com/photos/5332442/pexels-photo-5332442.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Contact Brandriko Digital Solutions - Web Design, Branding, and Digital Services in Kenya"
+              fill
+              priority
+              className="object-contain object-right"
+            />
+          </div>
+
+        <div className="container relative z-10 mx-auto px-6 pt-32 pb-28">
+          <div className="max-w-4xl">            
+
+            <motion.h1
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-6xl"
+            >
+              Let’s Build Your
+              <span className="block text-orange-500">
+                Digital Presence
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg"
+            >
+              We help businesses establish a strong online presence through
+              modern websites, branding, SEO, and digital solutions tailored
+              for growth.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="mt-10 flex flex-col gap-4 sm:flex-row"
+            >
+              <a
+                href="https://wa.me/254718421871"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-orange-600 px-8 py-4 text-base font-bold text-white shadow-xl shadow-orange-600/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-orange-300 sm:w-auto"
+              >
+                Chat on WhatsApp
+                <FaArrowRight />
+              </a>
+
+              <Link
+                href="/services"
+                className="inline-flex w-full items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/20 sm:w-auto"
+              >
+                View Our Services
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Contact Content Area */}
-      <section className="py-24 -mt-16 relative z-20">
+      {/* CONTACT CARDS */}
+      <section className="relative z-20 -mt-14 pb-24">
         <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-              
-              {/* Contact Cards */}
-              {[
-                { 
-                    icon: <FaPhoneAlt />, 
-                    title: 'Call Us', 
-                    content: '+254 718 421 871', 
-                    sub: 'Available Mon-Sat, 8am-6pm',
-                    link: 'tel:+254718421871',
-                    color: 'bg-blue-50 text-blue-600'
-                },
-                { 
-                    icon: <FaWhatsapp />, 
-                    title: 'WhatsApp', 
-                    content: 'Chat with us now', 
-                    sub: 'Fastest response time',
-                    link: 'https://wa.me/254718421871',
-                    color: 'bg-green-50 text-green-600'
-                },
-                { 
-                    icon: <FaEnvelope />, 
-                    title: 'Email Us', 
-                    content: 'info.brandriko.digital@gmail.com', 
-                    sub: 'We reply within 24 hours',
-                    link: 'mailto:info.brandriko.digital@gmail.com',
-                    color: 'bg-orange-50 text-orange-600'
-                },
-                { 
-                    icon: <FaMapMarkerAlt />, 
-                    title: 'Visit Us', 
-                    content: 'Nakuru, Kenya', 
-                    sub: 'Central Business District',
-                    link: '#map',
-                    color: 'bg-slate-100 text-slate-700'
+          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
+            {contactItems.map((item, idx) => (
+              <motion.a
+                key={idx}
+                href={item.link}
+                target={item.link.startsWith('http') ? '_blank' : undefined}
+                rel={
+                  item.link.startsWith('http')
+                    ? 'noopener noreferrer'
+                    : undefined
                 }
-              ].map((item, idx) => (
-                <a 
-                  href={item.link} 
-                  key={idx} 
-                  target={item.link.startsWith('http') ? "_blank" : undefined}
-                  className="group flex items-center gap-6 p-8 bg-white border border-slate-100 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="group flex items-start gap-5 rounded-[2rem] border border-slate-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-orange-200"
+              >
+                <div
+                  className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-2xl transition-transform duration-300 group-hover:scale-110 ${item.color}`}
                 >
-                  <div className={`w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center text-2xl transition-transform group-hover:scale-110 ${item.color}`}>
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">{item.title}</h4>
-                    <p className="text-xl font-bold text-slate-900 group-hover:text-orange-600 transition-colors">{item.content}</p>
-                    <p className="text-sm text-slate-500 font-medium">{item.sub}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
+                  {item.icon}
+                </div>
 
-            {/* Map Section */}
-            <div id="map" className="mt-12 rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl h-[400px]">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127640.34440813872!2d36.00234762507202!3d-0.302621008035222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d4c1d7c1b1%3A0xabcdef1234567890!2sNakuru%2C%20Kenya!5e0!3m2!1sen!2ske!4v1620000000000" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                title="Brandriko Office"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
+                <div className="min-w-0">
+                  <h2 className="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-slate-400">
+                    {item.title}
+                  </h2>
 
-      {/* CTA Section */}
-      <section className="pb-24">
-        <div className="container mx-auto px-6">
-          <div className="bg-gradient-to-br from-orange-600 to-orange-500 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl shadow-orange-600/30">
-            <div className="relative z-10 max-w-3xl mx-auto">
-              <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center mx-auto mb-8 rotate-3">
-                <FaCalendarCheck className="text-4xl" />
-              </div>
-              <h2 className="text-3xl md:text-5xl font-black mb-6">Need a Custom Strategy?</h2>
-              <p className="text-lg md:text-xl text-orange-50 mb-10 leading-relaxed">
-                Skip the back-and-forth emails. Book a free 30-minute discovery call directly on our calendar.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="w-full sm:w-auto bg-white text-orange-600 hover:bg-slate-100 px-10 py-4 text-lg font-black rounded-2xl transition-all shadow-xl active:scale-95">
-                  Book Free Discovery Call
-                </button>
-                <button className="w-full sm:w-auto bg-orange-700/30 hover:bg-orange-700/50 backdrop-blur-sm text-white border border-white/20 px-10 py-4 text-lg font-bold rounded-2xl transition-all">
-                  View Our Services
-                </button>
-              </div>
-            </div>
+                  <p className="break-words text-lg font-black text-slate-900 transition-colors duration-300 group-hover:text-orange-600 sm:text-xl">
+                    {item.content}
+                  </p>
+
+                  <p className="mt-1 text-sm font-medium text-slate-500">
+                    {item.sub}
+                  </p>
+                </div>
+              </motion.a>
+            ))}
           </div>
+
+          {/* MAP SECTION */}
+          <motion.div
+            id="map"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mx-auto mt-10 max-w-6xl overflow-hidden rounded-[2.5rem] border-8 border-white bg-white shadow-2xl"
+          >
+            <iframe
+              src="https://www.google.com/maps?q=Nakuru,+Kenya&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: '500px' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Brandriko Digital Solutions Location"
+            />
+          </motion.div>
         </div>
       </section>
     </main>
