@@ -108,7 +108,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Phone</h3>
-                    <p className="text-lg">+254 748 421 758</p>
+                    <p className="text-lg">+254 718 421 871</p>
                     <p className="text-sm text-gray-500">Mon-Sat, 8am-6pm (EAT)</p>
                   </div>
                 </div>
